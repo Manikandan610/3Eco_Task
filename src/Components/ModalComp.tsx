@@ -29,7 +29,9 @@ const ModalComp = () => {
                 <Col className="gutter-row" span={4}>
                     <div className='cols'>
                         <AreaChartOutlined className='iconstyle'/>
-                        <h1>Nunam</h1>
+                        <div className='col_content'>
+                                <h1>Nunam<sub></sub></h1>
+                            </div>
                         <p>Battery Provider</p>
                     </div>
                 </Col>
@@ -37,7 +39,7 @@ const ModalComp = () => {
                     <div className='cols'>
                         <AreaChartOutlined className='iconstyle'/>
                             <div className='col_content'>
-                            <h1>60<sub>%</sub></h1>
+                                <h1>60<sub>%</sub></h1>
                             </div>
                         <p>SOC</p>
                     </div>
