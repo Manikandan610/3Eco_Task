@@ -2,8 +2,11 @@
   padding: 8px 0;
   background: white;
 }
+.gutter-row{
+  margin-top: 15px;
+}
 .first_rows{
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .first_rows .cols {
     background: rgb(255, 255, 255);
