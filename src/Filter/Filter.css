@@ -46,24 +46,11 @@ list-style: none;
   padding: 6px 12px 7px;
   border-radius: 10px;
 }
-.date-row{
-  display: flex;
-}
-.date-row p {
-  font-size: 16px;
-  margin: 0;
-  color: #535353;
-  font-weight: 500;
-}
-.ant-picker-input > input{
+.ant-picker-input > input {
   font-size: 12px;
 }
-.date-second-col{
-  margin-left: 30px;
-}
 .main-btn{
-  margin-top: 20px;
-  margin-left: 60px;
+  margin: 20px 0 0 38px;
 }
 .first-btn{
   border-radius: 5px;

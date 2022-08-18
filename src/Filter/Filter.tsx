@@ -10,13 +10,14 @@ const onSearch = (value: string) => console.log(value);
 const Filter = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [value, setValue] = useState("Today");
+  const [buttonVal, setButtonVal] = useState("Today");
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
   const handleCancel = () => {
-    setValue("Today");
+    setValue(buttonVal);
     setIsModalVisible(false);
   };
 
@@ -29,6 +30,7 @@ const Filter = () => {
   const handleOk = (e: any) => {
     alert(value);
     console.log("radio checked", value);
+    setButtonVal(value);
     setIsModalVisible(false);
   };
 
@@ -42,11 +44,11 @@ const Filter = () => {
       <div className="btn-dropdown">
         Date
         <Button type="link" block className="dropdown" onClick={showModal}>
-          {value} <DownOutlined />
+          {buttonVal} <DownOutlined />
         </Button>
         <Modal
-          style={{ top: 30, left: 380 }}
-          width={300}
+          style={{ top: 30, left: 400 }}
+          width={250}
           title="Filter by Date"
           visible={isModalVisible}
           footer={false}
@@ -57,7 +59,7 @@ const Filter = () => {
               <Radio value={"Last 7 days"}>Last 7 days</Radio>
               <Radio value={"Last 30 days"}>Last 30 days</Radio>
               <Radio value={"Custom"}>Custom</Radio>
-              {value === "Custom" ? <DateComp /> : null}
+              {value === "Custom" && <DateComp />}
             </Space>
           </Radio.Group>
           <div className="main-btn">
