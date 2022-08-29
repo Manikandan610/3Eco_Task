@@ -1,4 +1,5 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, { useState } from "react";
+import moment from 'moment';
 import type { RadioChangeEvent } from "antd";
 import { Input, Modal, Button, Radio, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
@@ -27,11 +28,16 @@ const Filter = () => {
     setValue(e.target.value);
   };
 
-  const handleOk = (e: any) => {
+  const handleOk = () => {
     alert(value);
     console.log("radio checked", value);
     setButtonVal(value);
     setIsModalVisible(false);
+  };
+
+  const dateOnChange = (date: any, dateString:any) => {
+    console.log(dateString[0]+" to "+dateString[1]);
+    //console.log(moment(date).format('YYYY-MM-DD'));
   };
 
   return (
@@ -59,7 +65,7 @@ const Filter = () => {
               <Radio value={"Last 7 days"}>Last 7 days</Radio>
               <Radio value={"Last 30 days"}>Last 30 days</Radio>
               <Radio value={"Custom"}>Custom</Radio>
-              {value === "Custom" && <DateComp />}
+              {value === "Custom" && <DateComp dateOnChange={dateOnChange} />}
             </Space>
           </Radio.Group>
           <div className="main-btn">

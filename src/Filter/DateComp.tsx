@@ -1,16 +1,16 @@
 import React from "react";
 import { DatePicker } from "antd";
 
-const DateComp = () => {
+const DateComp = (props:any) => {
   const { RangePicker } = DatePicker;
 
-  const onChange = ({ date, dateString }: any) => {
-    console.log(date, dateString);
-  };
+  // const onChange = (date: any , dateString : any) => {
+  //   console.log(date, dateString);
+  // };
 
   return (
     <div className="date-row">
-      <RangePicker onChange={onChange} />
+      <RangePicker onChange={props.dateOnChange} />
     </div>
   );
 };
