@@ -295,3 +295,126 @@ function myFunction(arr) {
 myFunction(['Alf', 'Alice', 'Ben'])
 Expected
 { a: ['Alf', 'Alice'], b: ['Ben']}
+
+//Question 18
+// Write a function that takes two arrays as arguments
+// Merge both arrays and remove duplicate values
+// Sort the merge result in ascending order
+// Return the resulting array
+function myFunction(
+a, b
+)
+{
+let c=a.concat(b)
+ var removeDuplicate= [];
+ for(i=0; i < c.length; i++){
+            if(removeDuplicate.indexOf(c[i]) === -1) {
+                removeDuplicate.push(c[i]);
+            }
+ }
+removeDuplicate.sort(function(a, b){return a-b});
+return removeDuplicate
+}
+//Another
+function myFunction(a, b) {
+  return [...new Set([...a, ...b])].sort((x, y) => x - y);
+}
+//Answer
+myFunction([-10, 22, 333, 42], [-11, 5, 22, 41, 42])
+Expected
+[ -11, -10, 5, 22, 41,  42, 333]
+
+//Question 19
+// Write a function that takes an array (a) and a number (b) as arguments
+// Sum up all array elements with a value greater than b
+// Return the sum
+function myFunction(a, b) {
+  return a.reduce((sum, cur) => {
+    if (cur > b) return sum + cur;
+    return sum;
+  }, 0);
+}
+//Answer
+myFunction([1, 2, 3, 4, 5, 6, 7], 2)
+Expected
+25
+
+//Question 20
+// Write a function that takes an array (a) and a value (n) as arguments
+// Save every nth element in a new array
+// Return the new array
+function myFunction(a, n)
+{
+  return  a.filter((e, i) => i % n === n- 1);
+}
+//Another
+function myFunction(a, n) {
+  let rest = [...a];
+  let result = [];
+  for (let i = 0; i < a.length; i++) {
+     if (rest.length < n) break;
+     result.push(rest[n - 1]);
+     rest = rest.slice(n);
+  }
+  return result;
+}
+//Answer
+myFunction([1,2,3,4,5,6,7,8,9,10],3)
+Expected
+[3,6,9]
+
+//Question 21
+// Write a function that takes an array with arbitrary elements and a number as arguments
+// Return a new array, the first element should be either the given number itself
+// or zero if the number is smaller than 6
+// The other elements should be the elements of the original array
+// Try not to mutate the original array
+function myFunction(arr, num)
+{
+if(num<6){
+    num=0
+    arr.unshift(num)
+ }
+else
+    arr.unshift(num)
+return arr
+}
+//Another
+function myFunction(arr, num) {
+  return [...(num > 5 ? [num] : [0]), ...arr];
+ }
+//Answer 1
+myFunction([1,2,3], 6)
+Expected
+[6,1,2,3]
+//Answer 2
+myFunction(['a','b'], 2)
+Expected
+[0,'a','b']
+
+//Question 22
+// Write a function that takes an array of objects as argument
+// Sort the array by property b in ascending order
+// Return the sorted array
+function myFunction(arr)
+{
+  let c=arr.concat()
+  var sortedArray = c.sort(function(a, b) {
+    return a.b - b.b 
+});
+  return sortedArray
+}
+//Another
+function myFunction(arr) {
+  const sort = (x, y) => x.b - y.b;
+  return arr.sort(sort);
+}
+//Answer 1
+myFunction([{a:1,b:2},{a:5,b:4}])
+Expected
+[{a:1,b:2},{a:5,b:4}]
+//Answer 2
+myFunction([{a:2,b:10},{a:5,b:4}])
+Expected
+[{a:5,b:4},{a:2,b:10}]
+
